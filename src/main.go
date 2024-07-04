@@ -8,7 +8,6 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
 )
 
 func main() {
@@ -20,7 +19,7 @@ func main() {
 	windowSize := fyne.NewSize(700, 750)
 
 	//set up entry
-	inputFeild := widget.NewEntry()
+	inputFeild := NewCustomEntry()
 	inputFeild.MultiLine = true
 	inputFeild.Text = LoadSavedNote()
 

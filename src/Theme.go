@@ -19,6 +19,8 @@ func (m myTheme) Color(name fyne.ThemeColorName, variant fyne.ThemeVariant) colo
 		return color.Transparent
 	case theme.ColorNamePrimary:
 		return color.Black
+	case theme.ColorNameForeground:
+		return color.Black
 	default:
 		return theme.DefaultTheme().Color(name, variant)
 	}
@@ -29,7 +31,15 @@ func (m myTheme) Font(style fyne.TextStyle) fyne.Resource {
 }
 
 func (m myTheme) Size(name fyne.ThemeSizeName) float32 {
-	return theme.DefaultTheme().Size(name)
+	switch name {
+	case theme.SizeNameInputBorder:
+		return 1
+	case theme.SizeNameText:
+		return 16
+	default:
+		return theme.DefaultTheme().Size(name)
+	}
+
 }
 
 func (m myTheme) Icon(name fyne.ThemeIconName) fyne.Resource {
