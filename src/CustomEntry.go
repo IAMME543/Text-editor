@@ -20,7 +20,6 @@ func NewCustomEntry() *CustomEntry {
 
 func (e *CustomEntry) TypedShortcut(s fyne.Shortcut) {
 	if shortcut, ok := s.(*desktop.CustomShortcut); ok {
-
 		if shortcut.KeyName == fyne.KeyBackspace && shortcut.Modifier == fyne.KeyModifierControl {
 			e.deleteWordBeforeCursor()
 			return
@@ -36,7 +35,6 @@ func (e *CustomEntry) deleteWordBeforeCursor() {
 	text := e.Text[:pos]
 	lastSpace := strings.LastIndex(text, " ")
 	if lastSpace == -1 {
-
 		e.SetText(e.Text[pos:])
 		e.CursorColumn = 0
 	} else {
